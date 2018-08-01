@@ -12,6 +12,14 @@ import Alamofire
 
 class MeteoController: UIViewController {
 
+    @IBOutlet weak var villeLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var iconeTempsActuel: UIImageView!
+    @IBOutlet weak var descTempActuel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     var locationManager: CLLocationManager?
     var prevision = [Prevision]()
     
@@ -34,10 +42,47 @@ class MeteoController: UIViewController {
         
         Alamofire.request(url).responseJSON { (response) in
             if let reponse = response.value as? [String: AnyObject] {
-                print(response)
+                if let infoVille = reponse["city"] as? [String: AnyObject] {
+                    if let maVille = infoVille["name"] as? String {
+                        self.villeLabel.text = maVille
+                        if let liste = reponse["list"] as? NSArray {
+                            for element in liste {
+                                if let dict = element as? [String: AnyObject] {
+                                    if let main = dict["main"] as? [String: AnyObject] {
+                                        if let temp = main["temp"] as? Double {
+                                            if let weather = dict["weather"] as? NSArray, weather.count > 0 {
+                                                if let tempsActuel = weather[0] as? [String: AnyObject] {
+                                                    if let desc = tempsActuel["description"] as? String {
+                                                        if let icone = tempsActuel["icon"] as? String {
+                                                            if let date = dict["dt_txt"] as? String {
+                                                                let nouvellePrevision = Prevision(temperature: temp, date: date, icone: icone, desc: desc)
+                                                                self.prevision.append(nouvellePrevision)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            // Recharger les données
+                            self.miseEnPlaceValeursDuMoment()
+                        }
+                    }
+                }
             }
         }
         
+    }
+    
+    func miseEnPlaceValeursDuMoment() {
+        if prevision.count > 0 {
+            let tempsActuel = prevision[0]
+            temperatureLabel.text = tempsActuel.temperature.convertirEnIntString()
+            descTempActuel.text = tempsActuel.desc
+            ImageDownloader.obtenir.imageDepuis(tempsActuel.icone, imageView: iconeTempsActuel)
+        }
     }
 
 

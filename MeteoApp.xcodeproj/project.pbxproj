@@ -15,6 +15,8 @@
 		18CE21FF210B578B00E6655B /* LocalisationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE21FE210B578B00E6655B /* LocalisationExtension.swift */; };
 		18DE2198210CFA6A0036B152 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE2197210CFA6A0036B152 /* API.swift */; };
 		18DE219A210D21AB0036B152 /* Prevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE2199210D21AB0036B152 /* Prevision.swift */; };
+		18EFD7272110C9DD00C09282 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFD7262110C9DD00C09282 /* Extension.swift */; };
+		18F1751C21126DF3008476A4 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1751B21126DF3008476A4 /* ImageDownloader.swift */; };
 		5FFBD919A03FD58D9ECCCC1F /* Pods_MeteoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1F69D3B98588C09A5E7FCE /* Pods_MeteoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		18CE21FE210B578B00E6655B /* LocalisationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalisationExtension.swift; sourceTree = "<group>"; };
 		18DE2197210CFA6A0036B152 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		18DE2199210D21AB0036B152 /* Prevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prevision.swift; sourceTree = "<group>"; };
+		18EFD7262110C9DD00C09282 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		18F1751B21126DF3008476A4 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		6F2CDDCD93C3C7B155386BDF /* Pods-MeteoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeteoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeteoApp/Pods-MeteoApp.release.xcconfig"; sourceTree = "<group>"; };
 		CD1F69D3B98588C09A5E7FCE /* Pods_MeteoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeteoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				18DE2199210D21AB0036B152 /* Prevision.swift */,
+				18EFD7262110C9DD00C09282 /* Extension.swift */,
+				18F1751B21126DF3008476A4 /* ImageDownloader.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -251,7 +257,9 @@
 			files = (
 				18CE21FF210B578B00E6655B /* LocalisationExtension.swift in Sources */,
 				18CE21FD210B555A00E6655B /* MeteoController.swift in Sources */,
+				18F1751C21126DF3008476A4 /* ImageDownloader.swift in Sources */,
 				18DE219A210D21AB0036B152 /* Prevision.swift in Sources */,
+				18EFD7272110C9DD00C09282 /* Extension.swift in Sources */,
 				18DE2198210CFA6A0036B152 /* API.swift in Sources */,
 				18CE21E7210B54A700E6655B /* AppDelegate.swift in Sources */,
 			);
