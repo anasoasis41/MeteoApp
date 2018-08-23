@@ -18,15 +18,16 @@ class MeteoController: UIViewController {
     @IBOutlet weak var descTempActuel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    let previsionCell = "PrevisionCell"
     
     var locationManager: CLLocationManager?
-    var prevision = [Prevision]()
+    var previsions = [Prevision]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         miseEnplaceCLLocation()
+        miseEnPlaceTableView()
 
     }
     
@@ -56,7 +57,7 @@ class MeteoController: UIViewController {
                                                         if let icone = tempsActuel["icon"] as? String {
                                                             if let date = dict["dt_txt"] as? String {
                                                                 let nouvellePrevision = Prevision(temperature: temp, date: date, icone: icone, desc: desc)
-                                                                self.prevision.append(nouvellePrevision)
+                                                                self.previsions.append(nouvellePrevision)
                                                             }
                                                         }
                                                     }
@@ -68,6 +69,7 @@ class MeteoController: UIViewController {
                             }
                             // Recharger les données
                             self.miseEnPlaceValeursDuMoment()
+                            self.tableView.reloadData()
                         }
                     }
                 }
@@ -77,8 +79,8 @@ class MeteoController: UIViewController {
     }
     
     func miseEnPlaceValeursDuMoment() {
-        if prevision.count > 0 {
-            let tempsActuel = prevision[0]
+        if previsions.count > 0 {
+            let tempsActuel = previsions[0]
             temperatureLabel.text = tempsActuel.temperature.convertirEnIntString()
             descTempActuel.text = tempsActuel.desc
             ImageDownloader.obtenir.imageDepuis(tempsActuel.icone, imageView: iconeTempsActuel)
