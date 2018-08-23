@@ -20,7 +20,7 @@ class DonneeUniqueCell: UICollectionViewCell {
         self.prevision = prevision
         ImageDownloader.obtenir.imageDepuis(self.prevision.icone, imageView: icone)
         temperature.text = self.prevision.temperature.convertirEnIntString()
-        desc.text = self.prevision.desc
+        desc.text = self.prevision.jour + " " + (DateHelper.obtenir.heure(self.prevision.date) ?? "") + "\n" + self.prevision.desc
     }
     
 }

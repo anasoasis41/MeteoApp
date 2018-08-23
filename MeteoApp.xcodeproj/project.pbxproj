@@ -10,6 +10,7 @@
 		186C68FD212F1A7800E18A7B /* PrevisionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C68FC212F1A7800E18A7B /* PrevisionCell.swift */; };
 		186C68FF212F1B8F00E18A7B /* DonneeUniqueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C68FE212F1B8F00E18A7B /* DonneeUniqueCell.swift */; };
 		186C6901212F22FE00E18A7B /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C6900212F22FE00E18A7B /* TableViewExtension.swift */; };
+		186C6903212F391700E18A7B /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C6902212F391700E18A7B /* DateHelper.swift */; };
 		18CE21E7210B54A700E6655B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE21E6210B54A700E6655B /* AppDelegate.swift */; };
 		18CE21EC210B54A700E6655B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CE21EA210B54A700E6655B /* Main.storyboard */; };
 		18CE21EE210B54A900E6655B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CE21ED210B54A900E6655B /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		186C68FC212F1A7800E18A7B /* PrevisionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevisionCell.swift; sourceTree = "<group>"; };
 		186C68FE212F1B8F00E18A7B /* DonneeUniqueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonneeUniqueCell.swift; sourceTree = "<group>"; };
 		186C6900212F22FE00E18A7B /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		186C6902212F391700E18A7B /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		18CE21E3210B54A700E6655B /* MeteoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CE21E6210B54A700E6655B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18CE21EB210B54A700E6655B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				18DE2199210D21AB0036B152 /* Prevision.swift */,
 				18EFD7262110C9DD00C09282 /* Extension.swift */,
 				18F1751B21126DF3008476A4 /* ImageDownloader.swift */,
+				186C6902212F391700E18A7B /* DateHelper.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				186C68FD212F1A7800E18A7B /* PrevisionCell.swift in Sources */,
 				18DE2198210CFA6A0036B152 /* API.swift in Sources */,
 				18CE21E7210B54A700E6655B /* AppDelegate.swift in Sources */,
+				186C6903212F391700E18A7B /* DateHelper.swift in Sources */,
 				186C6901212F22FE00E18A7B /* TableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
