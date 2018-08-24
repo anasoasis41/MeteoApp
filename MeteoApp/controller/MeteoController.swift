@@ -22,6 +22,9 @@ class MeteoController: UIViewController {
     
     var locationManager: CLLocationManager?
     var previsions = [Prevision]()
+    var previsionJournalieres = [PrevisionJournaliere]()
+    
+    var enTrainDeRecupererLesDonnees = false
     
     
     override func viewDidLoad() {
@@ -32,6 +35,7 @@ class MeteoController: UIViewController {
     }
     
     func obtenirPrevisionsMeteo(latitude: Double, longitude: Double) {
+        enTrainDeRecupererLesDonnees = true
         let urlDeBase = "http://api.openweathermap.org/data/2.5/forecast?"
         let latitude = "lat=" + String(latitude)
         let longitude = "&lon=" + String(longitude)
@@ -69,7 +73,7 @@ class MeteoController: UIViewController {
                             }
                             // Recharger les données
                             self.miseEnPlaceValeursDuMoment()
-                            self.tableView.reloadData()
+                            self.obtenirPrevisionJournaliere()
                         }
                     }
                 }
@@ -85,6 +89,45 @@ class MeteoController: UIViewController {
             descTempActuel.text = tempsActuel.desc
             ImageDownloader.obtenir.imageDepuis(tempsActuel.icone, imageView: iconeTempsActuel)
         }
+    }
+    
+    func obtenirPrevisionJournaliere() {
+        var jour = ""
+        var icone = ""
+        var min = 0.0
+        var max = 0.0
+        var desc = ""
+        
+        for prevision in previsions {
+            if prevision.jour != "" {
+                if prevision.jour != jour {
+                    if jour != "" {
+                        let nouvelleJournee = PrevisionJournaliere(jour: jour, icone: icone, desc: desc, min: min, max: max)
+                        previsionJournalieres.append(nouvelleJournee)
+                    }
+                    jour = prevision.jour
+                    icone = prevision.icone
+                    min = prevision.temperature
+                    max = prevision.temperature
+                    desc = prevision.desc
+                } else {
+                    if prevision.temperature > max {
+                        max = prevision.temperature
+                    }
+                    
+                    if prevision.temperature < min {
+                        min = prevision.temperature
+                    }
+                    
+                    if prevision.date.contains("12:") {
+                        icone = prevision.icone
+                        desc = prevision.desc
+                    }
+                }
+            }
+        }
+        enTrainDeRecupererLesDonnees = false
+        self.tableView.reloadData()
     }
 
 

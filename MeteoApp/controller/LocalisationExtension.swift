@@ -26,7 +26,11 @@ extension MeteoController: CLLocationManagerDelegate {
         let latitude = positionActuelle.coordinate.latitude
         let longitude = positionActuelle.coordinate.longitude
         
-        obtenirPrevisionsMeteo(latitude: latitude, longitude: longitude)
+        if !enTrainDeRecupererLesDonnees {
+            previsionJournalieres = [PrevisionJournaliere]()
+            previsions = [Prevision]()
+            obtenirPrevisionsMeteo(latitude: latitude, longitude: longitude)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -16,13 +16,19 @@ extension MeteoController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return previsionJournalieres.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: previsionCell) as? PrevisionCell {
                 cell.miseEnPlace(previsions: previsions)
+                return cell
+            }
+        } else {
+            let prevision = previsionJournalieres[indexPath.row - 1]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "JourCell") as? JourCell {
+                cell.miseEnPlace(prevision: prevision)
                 return cell
             }
         }
