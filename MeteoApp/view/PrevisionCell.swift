@@ -23,6 +23,9 @@ class PrevisionCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if previsions.count >= 7 {
+            return 7
+        }
         return previsions.count
     }
     

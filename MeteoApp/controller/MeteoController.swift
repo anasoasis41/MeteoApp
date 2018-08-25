@@ -25,7 +25,8 @@ class MeteoController: UIViewController {
     var previsionJournalieres = [PrevisionJournaliere]()
     
     var enTrainDeRecupererLesDonnees = false
-    
+    var jour = UIColor(red: 0, green: 191 / 255, blue: 1, alpha: 1)
+    var nuit = UIColor(red: 19 / 255, green: 24 / 255, blue: 98 / 255, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +89,12 @@ class MeteoController: UIViewController {
             temperatureLabel.text = tempsActuel.temperature.convertirEnIntString()
             descTempActuel.text = tempsActuel.desc
             ImageDownloader.obtenir.imageDepuis(tempsActuel.icone, imageView: iconeTempsActuel)
+            
+            if tempsActuel.icone.contains("d") {
+                view.backgroundColor = jour
+            } else {
+                view.backgroundColor = nuit
+            }
         }
     }
     

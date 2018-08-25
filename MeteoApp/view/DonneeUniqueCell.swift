@@ -17,6 +17,9 @@ class DonneeUniqueCell: UICollectionViewCell {
     var prevision: Prevision!
     
     func miseEnPlace(prevision: Prevision) {
+        backgroundColor = .white
+        layer.cornerRadius = 20
+        
         self.prevision = prevision
         ImageDownloader.obtenir.imageDepuis(self.prevision.icone, imageView: icone)
         temperature.text = self.prevision.temperature.convertirEnIntString()
